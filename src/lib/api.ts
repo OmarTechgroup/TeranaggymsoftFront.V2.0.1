@@ -16,7 +16,13 @@ export async function apiFetch<T>(path: string, options: RequestInit = {}): Prom
             ...options.headers,
         },
     })
+    if (res.status === 204) {
+        return undefined as T // no body
+    }
 
     if (!res.ok) throw new Error(`Erreur ${res.status}: ${res.statusText}`)
-    return res.json()
+
+    const text = await res.text()
+    if (!text) return undefined as T
+    return JSON.parse(text) as T
 }

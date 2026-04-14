@@ -17,5 +17,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/((?!_next|api|login|_static).*)'],
+    matcher: ['/((?!_next|api|login|portal|_static|icons|manifest\\.json|sw\\.js|firebase-messaging-sw\\.js).*)'],
 }

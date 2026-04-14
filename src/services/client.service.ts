@@ -10,6 +10,13 @@ export interface Client {
     qrcode: string
     photo?: string
     cardNumber: string
+    responseDto?: {
+        id?: number
+        isActif: boolean
+        dateDebut: string
+        dateFin: string
+        typeAbonnement?: string
+    } | null
 }
 
 export interface ClientCreateDTO {
